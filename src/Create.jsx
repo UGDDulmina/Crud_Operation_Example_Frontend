@@ -11,9 +11,9 @@ function Create() {
         .catch(err => console.log(err))
     }
   return (
-    <div>
-        <input type="text"  placeholder='Enter Task' onChange={(e) => setTask(e.target.value)} />
-        <button type='button' onClick={handleAdd}>Add</button>
+    <div className='mb-5'>
+        <input type="text"  placeholder='Enter Task' onChange={(e) => setTask(e.target.value) } className='w-80 h-10 rounded-xl p-2 text-black'/>
+        <button type='button' onClick={handleAdd} className='bg-blue-600 ml-2 p-2 rounded-lg'>Add</button>
     </div>
   )
 }

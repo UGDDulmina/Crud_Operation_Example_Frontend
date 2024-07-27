@@ -29,34 +29,45 @@ function Home() {
     }
 
   return (
-    <div>
-        <h2>To Do List</h2>
+    <div className='bg-black text-white absolute inset-0 flex flex-col justify-center items-center '>
+        <div className='m-8 mb-10 '>
+            <h1 className='text-blue-700 text-xl'>To Do List</h1>
+        </div>
+        
         <Create/>
+       
         {
             todos.length === 0
             ?
-            <div><h2>No Record.</h2></div>
-            :
+            <div><h2 className='text-red-400 m-4'>No Records.</h2></div>
+            
+            : 
             todos.map(todo => (
-
-                <div>
-                    <div className='checkbox' onClick={() => handleEdit(todo._id)}> 
+                 
+                <div className='bg-white rounded-lg w-80 m-1  flex items-center justify-between'>
+                    
+                    <div className='checkbox ' onClick={() => handleEdit(todo._id)}> 
                     {todo.done ?
                     
                      console.log('success!')
                      :
-                     <button >
+                     <button className=' text-green-600 ml-1'>
                       Edit
                     </button>}
-                    
-                    
                     </div>
-                    {todo.task} 
-                <button onClick={() => handleDelete(todo._id)}>Delete</button>
-                </div>
-
+                    
+                    
+                    <div className='text-black mx-4 break-words'>
+                            {todo.task}
+                    </div> 
+                   
+                    <button onClick={() => handleDelete(todo._id)} className=' text-red-600 bg-white rounded-lg p-1 '>Delete</button>
+                   
+              </div>
+            
             ))
         }
+        
     </div>
   )
 }
